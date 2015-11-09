@@ -33,4 +33,4 @@ __Note:__ Please follow the Contributors.md intructions for your pull request(s)
 [Issues]: https://github.com/The-King/sponge-vanilla-control/issues
 [Java]: http://java.oracle.com/
 [Source]: https://github.com/The-King/sponge-vanilla-control/
-[MIT License]: http://www.tldrlegal.com/license/mit-license
+[Gradle]: http://gradle.org/
