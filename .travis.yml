@@ -9,3 +9,6 @@ script: ./gradlew build
 
 notifications:
   email: false
+
+before_install:
+ - chmod +x gradlew
