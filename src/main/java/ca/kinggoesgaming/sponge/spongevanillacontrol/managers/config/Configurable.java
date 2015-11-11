@@ -23,22 +23,22 @@
  * SOFTWARE.
  */
 
-group 'me.kinggoesgaming.sponge'
-version '1.0-SNAPSHOT'
+package ca.kinggoesgaming.sponge.spongevanillacontrol.managers.config;
 
-apply plugin: 'java'
+import ninja.leaping.configurate.commented.CommentedConfigurationNode;
 
-sourceCompatibility = 1.8
+/**
+ *
+ */
+public interface Configurable {
 
-repositories {
-    mavenCentral()
-    maven {
-        name = 'sponge'
-        url = 'http://repo.spongepowered.org/maven'
-    }
-}
+    void load();
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-    compile 'org.spongepowered:spongeapi:2.1-SNAPSHOT'
+    void save();
+
+    void setup();
+
+    void upgrade();
+
+    CommentedConfigurationNode getConfig();
 }

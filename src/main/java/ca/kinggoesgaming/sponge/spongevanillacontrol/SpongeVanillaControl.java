@@ -25,13 +25,14 @@
 
 package ca.kinggoesgaming.sponge.spongevanillacontrol;
 
+import ca.kinggoesgaming.sponge.spongevanillacontrol.managers.config.ConfigManager;
 import com.google.inject.Inject;
 import org.slf4j.Logger;
 import org.spongepowered.api.event.Listener;
-import org.spongepowered.api.event.game.state.GameInitializationEvent;
-import org.spongepowered.api.event.game.state.GamePostInitializationEvent;
-import org.spongepowered.api.event.game.state.GamePreInitializationEvent;
+import org.spongepowered.api.event.game.state.*;
 import org.spongepowered.api.plugin.Plugin;
+
+import java.io.File;
 
 /**
  * Main class of Sponge Vanilla Control plugin
@@ -41,25 +42,52 @@ import org.spongepowered.api.plugin.Plugin;
         version = PluginDescription.VERSION)
 public class SpongeVanillaControl {
 
+    private static SpongeVanillaControl instance;
+
     @Inject
     private Logger logger;
 
+    public static SpongeVanillaControl getInstance() {
+        return instance;
+    }
+
     @Listener
-    public void preInit(GamePreInitializationEvent event) {
+    public void onPreInitialization(GamePreInitializationEvent event) {
+        instance = this;
+        setupConfigs();
+    }
+
+    @Listener
+    public void onInitialization(GameInitializationEvent event) {
+    }
+
+    @Listener
+    public void onPostInitialization(GamePostInitializationEvent event) {
 
     }
 
     @Listener
-    public void init(GameInitializationEvent event) {
+    public void onStartedServer(GameStartedServerEvent event) {
 
     }
 
     @Listener
-    public void postInit(GamePostInitializationEvent event) {
+    public void onStoppedServer(GameStoppedServerEvent event) {
 
+    }
+
+    private void setupConfigs() {
+        File configDir = new File("config/" + PluginDescription.ID + "/");
+
+        if(!configDir.exists()) {
+            configDir.mkdirs();
+        }
+
+        ConfigManager.getInstance().setup();
     }
 
     public Logger getLogger() {
         return logger;
     }
+
 }
