@@ -7,6 +7,7 @@ A Sponge plugin to have every vanilla aspect of the game configurable.
 
 * [Source]
 * [Issues]
+* Esper IRC channels: #The-King, #kinggoesgaming
 
 ## License
 Sponge Vanilla Control is licensed under [MIT License] license, same as Sponge is.
