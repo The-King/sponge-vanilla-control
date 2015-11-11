@@ -25,7 +25,7 @@
 
 package ca.kinggoesgaming.sponge.spongevanillacontrol;
 
-import ca.kinggoesgaming.sponge.spongevanillacontrol.managers.config.ConfigManager;
+import ca.kinggoesgaming.sponge.spongevanillacontrol.managers.config.Config;
 import com.google.inject.Inject;
 import org.slf4j.Logger;
 import org.spongepowered.api.event.Listener;
@@ -83,7 +83,7 @@ public class SpongeVanillaControl {
             configDir.mkdirs();
         }
 
-        ConfigManager.getInstance().setup();
+        Config.getInstance().setup();
     }
 
     public Logger getLogger() {
